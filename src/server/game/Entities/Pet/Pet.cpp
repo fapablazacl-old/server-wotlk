@@ -1060,7 +1060,15 @@ bool Guardian::InitStatsForLevel(uint8 petlevel)
                     SetBonusDamage(int32(GetOwner()->GetTotalAttackPowerValue(BASE_ATTACK) * 0.006f));
                     SetBaseWeaponDamage(BASE_ATTACK, MINDAMAGE, float(petlevel - 30 - (petlevel / 4)));
                     SetBaseWeaponDamage(BASE_ATTACK, MAXDAMAGE, float(petlevel - 30 + (petlevel / 4)));
+                    break;
                 }
+                case 27893: // Rune Weapon
+                {
+					SetAttackTime(BASE_ATTACK, 3500);
+					SetBonusDamage(int32(GetOwner()->GetTotalAttackPowerValue(BASE_ATTACK) * 0.5f));
+					SetBaseWeaponDamage(BASE_ATTACK, MINDAMAGE, float(GetOwner()->GetWeaponDamageRange(BASE_ATTACK, MINDAMAGE) / 2));
+					SetBaseWeaponDamage(BASE_ATTACK, MAXDAMAGE, float(GetOwner()->GetWeaponDamageRange(BASE_ATTACK, MAXDAMAGE) / 2));
+				}
             }
             break;
         }
